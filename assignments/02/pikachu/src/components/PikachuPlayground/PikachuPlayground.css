@@ -1,0 +1,43 @@
+.playground {
+  position: fixed;
+  width: 1000px;
+  height: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url("../../assets/grass.png"); /* 배경 이미지 */
+  background-size: 10% 10%; /* 10x10 그리드 */
+}
+
+.pikachu {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-image: url("../../assets/pikachu.png"); /* 피카츄 이미지 */
+  background-size: cover;
+  transition: top 0.2s, left 0.2s; /* 위치 변화 애니메이션 */
+}
+
+/* 피카츄를 왼쪽으로 향하게 함 */
+.pikachu.left {
+  transform: scaleX(
+    -1
+  ); /*scaleX(-1)은 요소를 수평으로 뒤집는 변형을 수행합니다.*/
+}
+
+/* 0.3s: 애니메이션의 지속 시간으로, 점프가 0.3초 동안 이루어집니다. */
+/* ease-out: 애니메이션의 타이밍 함수로, 점프가 완료될 때까지 점차 속도가 느려집니다. */
+.pikachu.jump {
+  animation: jump 0.3s ease-out; /* 점프 애니메이션 */
+}
+
+/* @keyframes는 CSS 애니메이션을 정의하는 규칙 */
+/* 0%, 100%: 애니메이션의 시작과 끝 지점을 나타냅니다 */
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0); /* 원래 위치 */
+  }
+  50% {
+    transform: translateY(-50px); /* 점프 최고점 */
+  }
+}
